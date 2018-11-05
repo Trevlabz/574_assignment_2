@@ -8,6 +8,8 @@ else()
     link_libraries(m)
 endif()
 
+set(CMAKE_CXX_FLAGS "-std=c++11")
+
 file( GLOB SRCS *.cpp *.h )
 
 add_executable( dpgen ${SRCS} )
