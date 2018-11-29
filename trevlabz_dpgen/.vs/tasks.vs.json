@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-DPGEN",
+      "appliesTo": "src/DPGEN.cpp",
+      "type": "launch"
+    }
+  ]
+}

@@ -30,6 +30,10 @@ int main(int argc, char *argv[]) {
 		cerr << "Input file " << argv[1] << " failed to open" << endl;
 		return 1;
 	}
+	else if (iFile.peek() == std::ifstream::traits_type::eof()) {
+		cerr << "Input File is empty!" << endl;
+		return 1;
+	}
 
 
 	string inputFile = argv[1];
@@ -593,7 +597,7 @@ int main(int argc, char *argv[]) {
 					if (compIsSigned) {				//if signed append S
 						outputLine.append("S");
 					}
-					outputLine.append("COMP #(.DATAWIDTH(" + to_string(compWidth) + ")) COMP" + to_string(componentCount) + "(" + compIn1 + ", " + compIn2 + ", " + compOut + "[0], ,);");
+					outputLine.append("COMP #(.DATAWIDTH(" + to_string(compWidth) + ")) COMP" + to_string(componentCount) + "(" + compIn1 + ", " + compIn2 + ", " + compOut + ", ,);");
 					graph.push_back(make_tuple("COMP" + to_string(compWidth), vector<string>{compIn1_orig, compIn2_orig}, compOut, false));	//add component to graph
 
 					tFile << outputLine << '\n';
@@ -631,7 +635,7 @@ int main(int argc, char *argv[]) {
 					if (compIsSigned) {				//if signed append S
 						outputLine.append("S");
 					}
-					outputLine.append("COMP #(.DATAWIDTH(" + to_string(compWidth) + ")) COMP" + to_string(componentCount) + "(" + compIn1 + ", " + compIn2 + ", ," + compOut + "[0],);");
+					outputLine.append("COMP #(.DATAWIDTH(" + to_string(compWidth) + ")) COMP" + to_string(componentCount) + "(" + compIn1 + ", " + compIn2 + ", ," + compOut + ",);");
 					graph.push_back(make_tuple("COMP" + to_string(compWidth), vector<string>{compIn1_orig, compIn2_orig}, compOut, false));	//add component to graph
 
 					tFile << outputLine << '\n';
@@ -668,7 +672,7 @@ int main(int argc, char *argv[]) {
 					if (compIsSigned) {				//if signed append S
 						outputLine.append("S");
 					}
-					outputLine.append("COMP #(.DATAWIDTH(" + to_string(compWidth) + ")) COMP" + to_string(componentCount) + "(" + compIn1 + ", " + compIn2 + ", , ," + compOut + "[0]);");
+					outputLine.append("COMP #(.DATAWIDTH(" + to_string(compWidth) + ")) COMP" + to_string(componentCount) + "(" + compIn1 + ", " + compIn2 + ", , ," + compOut + ");");
 					graph.push_back(make_tuple("COMP" + to_string(compWidth), vector<string>{compIn1_orig, compIn2_orig}, compOut, false));	//add component to graph
 
 					tFile << outputLine << '\n';
@@ -1022,7 +1026,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	cout << "Critical Path: " << criticalPathTime << " ns" << endl;
+	cout << "Critical Path : " << criticalPathTime << " ns" << endl;
 	return 0;
 }
 
