@@ -589,6 +589,16 @@ int main(int argc, char *argv[]) {
 						compIn2Width = inputSize[i];
 						compIn2IsSigned = inputIsSigned[i];
 					}
+
+
+					if (compIn1Width >= compIn2Width) {			//set compWidth based on inputs instead of outputs because this is a comparator
+						compWidth = compIn1Width;					
+					}
+					else {
+						compWidth = compIn2Width;
+					}
+
+
 					compIn2_orig = compIn2;
 					if (!compIn2IsSigned && compIsSigned) {		//if component is signed and input unsigned then convert to signed
 						compIn2 = "$signed({1'b0," + compIn2 + "})";
@@ -627,6 +637,14 @@ int main(int argc, char *argv[]) {
 						compIn2Width = inputSize[i];
 						compIn2IsSigned = inputIsSigned[i];
 					}
+
+					if (compIn1Width >= compIn2Width) {			//set compWidth based on inputs instead of outputs because this is a comparator
+						compWidth = compIn1Width;
+					}
+					else {
+						compWidth = compIn2Width;
+					}
+
 					compIn2_orig = compIn2;
 					if (!compIn2IsSigned && compIsSigned) {		//if component is signed and input unsigned then convert to signed
 						compIn2 = "$signed({1'b0," + compIn2 + "})";
@@ -664,6 +682,15 @@ int main(int argc, char *argv[]) {
 						compIn2Width = inputSize[i];
 						compIn2IsSigned = inputIsSigned[i];
 					}
+
+					if (compIn1Width >= compIn2Width) {			//set compWidth based on inputs instead of outputs because this is a comparator
+						compWidth = compIn1Width;
+					}
+					else {
+						compWidth = compIn2Width;
+					}
+
+
 					compIn2_orig = compIn2;
 					if (!compIn2IsSigned && compIsSigned) {		//if component is signed and input unsigned then convert to signed
 						compIn2 = "$signed({1'b0," + compIn2 + "})";

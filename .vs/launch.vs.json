@@ -1,0 +1,16 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "dpgen.exe (src\\dpgen.exe)",
+      "name": "dpgen.exe (src\\dpgen.exe)",
+      "args": [
+        "C:\\Users\\trevl\\Documents\\GitHub\\Assignment_2\\assignment_2_circuits\\circuit1.txt",
+        "C:\\Users\\trevl\\Documents\\GitHub\\Assignment_2\\assignment_2_circuits\\circuit1.v"
+      ]
+    }
+  ]
+}
